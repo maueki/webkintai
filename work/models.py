@@ -10,7 +10,7 @@ class User(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        return self.name
+        return "{} ({})".format(self.name, self.email)
 
 class Project(models.Model):
     name = models.CharField(max_length=1024)
@@ -18,7 +18,7 @@ class Project(models.Model):
     end_date = models.DateField(null=True, blank=True)
 
     def __str__(self):
-        return "name: {}, start: {}, end: {}".format(self.name, self.start_date, self.end_date)
+        return "{} (from {} to {})".format(self.name, self.start_date, self.end_date)
 
 class WorkDivision(models.Model):
     name = models.CharField(max_length=1024)
