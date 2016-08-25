@@ -1,0 +1,5 @@
+Django==1.10
+django-filter==0.13.0
+djangorestframework==3.4.0
+docutils==0.12
+pkg-resources==0.0.0
