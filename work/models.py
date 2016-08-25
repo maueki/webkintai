@@ -3,14 +3,9 @@ import datetime
 from django.db import models
 from django.utils import timezone
 
+from django.contrib.auth import models as usermodels
+
 # Create your models here.
-
-class User(models.Model):
-    name = models.CharField(max_length=32, unique=True)
-    email = models.EmailField()
-
-    def __str__(self):
-        return "{} ({})".format(self.name, self.email)
 
 class Project(models.Model):
     name = models.CharField(max_length=1024)
@@ -28,7 +23,7 @@ class WorkDivision(models.Model):
         return self.name
 
 class Work(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(usermodels.User)
     date = models.DateField()
     duration = models.IntegerField(default=0)
     project = models.ForeignKey(Project)
